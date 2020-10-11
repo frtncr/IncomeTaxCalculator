@@ -8,10 +8,10 @@ namespace IncomeTaxCalculator.Strategies.IncomeTax
         protected override IEnumerable<TaxLevel> TaxLevels =>
             new List<TaxLevel>
             {
-                new TaxLevel {Start = 0m, End = 13500m, Rate = 25},
-                new TaxLevel {Start = 13500m, End = 23390m, Rate = 40},
-                new TaxLevel {Start = 23390m, End = 40480m, Rate = 45},
-                new TaxLevel {Start = 40480m, End = decimal.MaxValue, Rate = 50}
+                new TaxLevel {Threshold = 0m, Rate = 25},
+                new TaxLevel {Threshold = 13500m, Rate = 40},
+                new TaxLevel {Threshold = 23390m, Rate = 45},
+                new TaxLevel {Threshold = 40480m, Rate = 50}
             };
     }
 }

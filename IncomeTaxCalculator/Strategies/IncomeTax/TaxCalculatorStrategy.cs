@@ -12,10 +12,10 @@ namespace IncomeTaxCalculator.Strategies.IncomeTax
             var totalTax = 0m;
             var remaining = annualIncome;
 
-            var levels = TaxLevels.Where(x => x.Start < annualIncome).OrderByDescending(x => x.Rate);
+            var levels = TaxLevels.Where(x => x.Threshold < annualIncome).OrderByDescending(x => x.Rate);
             foreach (var taxLevel in levels)
             {
-                var taxableAmount = remaining - taxLevel.Start;
+                var taxableAmount = remaining - taxLevel.Threshold;
                 var taxCalculated = taxableAmount * taxLevel.Rate * 0.01m;
 
                 totalTax += taxCalculated;
