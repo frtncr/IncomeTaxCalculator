@@ -18,7 +18,7 @@ namespace IncomeTaxCalculatorTest
         }
 
         [Fact]
-        public void CalculateIncomeTaxAction_ShouldNotReturn_Null()
+        public void CalculateIncomeTax_ShouldNotReturnNull_WhenCountryCodeIsValid()
         {
             // Arrange
             _mockTaxCalculatorService.Setup(x => x.Calculate("TR", 32000m))

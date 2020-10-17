@@ -6,7 +6,7 @@ namespace IncomeTaxCalculatorTest
 {
     public class HomeControllerTests
     {
-        private HomeController _sut;
+        private readonly HomeController _sut;
 
         public HomeControllerTests()
         {
@@ -14,7 +14,7 @@ namespace IncomeTaxCalculatorTest
         }
 
         [Fact]
-        public void IndexAction_ShouldNotReturn_Null()
+        public void Index_ShouldNotReturn_Null()
         {
             // Arrange
             
@@ -26,7 +26,7 @@ namespace IncomeTaxCalculatorTest
         }
 
         [Fact]
-        public void IndexAction_ShouldReturn_Message()
+        public void Index_ShouldReturn_Message()
         {
             // Arrange
             
@@ -38,7 +38,7 @@ namespace IncomeTaxCalculatorTest
         }
         
         [Fact]
-        public void IndexAction_ShouldReturn_Http200()
+        public void Index_ShouldReturnHttpOk()
         {
             // Arrange
             
