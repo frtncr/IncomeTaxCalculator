@@ -8,20 +8,32 @@ namespace IncomeTaxCalculatorTest
     public class TaxCalculatorServiceTests
     {
         [Fact]
-        public void ZeroAnnualIncome_ShouldReturn_Zero()
+        public void Calculate_ShouldThrowException_WhenCountryCodeIsInvalid()
         {
             // Arrange
             var sut = new TaxCalculatorService();
             
             // Act
-            var result = sut.Calculate("BE", Decimal.Zero);
-
-            //Assert
-            Assert.Equal(Decimal.Zero, result);
+            
+            // Assert
+            Assert.Throws<Exception>(() => sut.Calculate("AA", 25000m));
         }
         
         [Fact]
-        public void GivenAnnualIncome_ShouldNotReturn_Null()
+        public void Calculate_ShouldReturnZero_WhenAnnualIncomeZero()
+        {
+            // Arrange
+            var sut = new TaxCalculatorService();
+            
+            // Act
+            var result = sut.Calculate("BE", decimal.Zero);
+
+            //Assert
+            Assert.Equal(decimal.Zero, result);
+        }
+        
+        [Fact]
+        public void Calculate_ShouldNotReturnNull_WhenAnnualIncomeGreaterThanZero()
         {
             // Arrange
             var sut = new TaxCalculatorService();
@@ -32,17 +44,18 @@ namespace IncomeTaxCalculatorTest
             // Assert
             Assert.NotEqual(Decimal.Zero, result);
         }
-
+        
         [Fact]
-        public void NonExistingCountryCode_ShouldThrow_Exception()
+        public void Calculate_ShouldReturnGreaterThanZero_WhenAnnualIncomeGreaterThanZero()
         {
             // Arrange
             var sut = new TaxCalculatorService();
             
             // Act
-            
+            var result = sut.Calculate("TR", 32000m);
+
             // Assert
-            Assert.Throws<Exception>(() => sut.Calculate("AA", 25000m));
+            Assert.True(result > decimal.Zero);
         }
     }
 }
