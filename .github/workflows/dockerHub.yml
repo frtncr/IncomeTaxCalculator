@@ -28,3 +28,6 @@ jobs:
         with:
           push: true
           tags: frtncr/incometaxcalculator
+          context: /src/IncomeTaxCalculator	
+          file: dockerfile	
+          platforms: linux/amd64
