@@ -26,8 +26,5 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./src/IncomeTaxCalculator
-          file: dockerfile
-          platforms: linux/amd6
           push: true
-          tags: frtncr/incometaxcalculator:latest
+          tags: frtncr/incometaxcalculator
