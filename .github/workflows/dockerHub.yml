@@ -15,19 +15,3 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         snapshot: true
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          docker rm -f $(docker ps -aq -f name=taxy)
-          docker rmi $(docker images | grep 'frtncr/incometaxcalculator' | awk '{print $3}')
-          docker pull frtncr/incometaxcalculator
-          docker run --name incometaxcalculator -p 8086:80 --restart=always --name taxy -d frtncr/incometaxcalculator
