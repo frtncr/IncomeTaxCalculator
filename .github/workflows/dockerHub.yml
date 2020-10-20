@@ -27,7 +27,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          docker rm -f $(docker ps -aq -f name=incometaxcalculator)
+          docker rm -f $(docker ps -aq -f name=taxy)
           docker rmi $(docker images | grep 'frtncr/incometaxcalculator' | awk '{print $3}')
           docker pull frtncr/incometaxcalculator
-          docker run --name incometaxcalculator -p 8086:80 --restart=always -d frtncr/incometaxcalculator
+          docker run --name incometaxcalculator -p 8086:80 --restart=always --name taxy -d frtncr/incometaxcalculator
