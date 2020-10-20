@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator", "IncomeTaxCalculator\IncomeTaxCalculator.csproj", "{28AF3971-A925-4E05-A104-82459E88C3BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator", "src\IncomeTaxCalculator\IncomeTaxCalculator.csproj", "{28AF3971-A925-4E05-A104-82459E88C3BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculatorTest", "IncomeTaxCalculatorTest\IncomeTaxCalculatorTest.csproj", "{93014C4E-2C05-4425-8295-8DD76AE20429}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculatorTest", "src\IncomeTaxCalculatorTest\IncomeTaxCalculatorTest.csproj", "{93014C4E-2C05-4425-8295-8DD76AE20429}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
